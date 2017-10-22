@@ -20,8 +20,11 @@ primary application image requires downloading and installing python dependencie
 that you build the image prior to attending this talk.
 
 ### Pull Images
+```
 docker-compose pull
+```
 
 ### Build Images
+```
 docker-compose build
-
+```
