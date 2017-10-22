@@ -1,0 +1,37 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - "443:443"
+    #volumes:
+    #  - ./config/nginx:/etc/nginx/conf.d
+    #  - ./config/ssl:/etc/ssl
+    #  - ./static:/static
+    depends_on:
+      - api
+  db:
+    restart: always
+    image: postgres
+    ports:
+      - "54332:5432"
+    #volumes:
+    #  - ./postgres_init:/docker-entrypoint-initdb.d
+    #  - ./postgres_data:/var/lib/postgresql/data
+    #env_file:
+    #  - .postgres_env 
+  api:
+    #env_file:
+    #  - .env 
+    restart: always
+    environment:
+      - DOCKER=True
+    build: .
+    command: bash docker_entrypoint.sh
+    #volumes:
+    #  - .:/src
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
