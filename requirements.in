@@ -1,0 +1,5 @@
+coreapi
+django
+django-filter
+djangorestframework
+psycopg2
