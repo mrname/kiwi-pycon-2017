@@ -4,3 +4,4 @@ django-filter
 django-q
 djangorestframework
 psycopg2
+redis

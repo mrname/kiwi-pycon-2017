@@ -3,10 +3,10 @@ services:
   nginx:
     image: nginx
     restart: always
-    ports:
+    #ports:
       # - "80:80"
       # - "443:443"
-    volumes:
+    #volumes:
     #  - ./config/nginx:/etc/nginx/conf.d
     #  - ./config/ssl:/etc/ssl
     #  - ./static:/static
@@ -50,8 +50,6 @@ services:
     #  - .:/src
     depends_on:
       - db
-    ports:
-      - "8000:8000"
   redis:
     restart: always
     image: redis

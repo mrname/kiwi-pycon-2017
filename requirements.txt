@@ -22,6 +22,7 @@ markupsafe==1.0           # via jinja2
 psycopg2==2.7.3.1
 python-dateutil==2.6.1    # via arrow
 pytz==2017.2              # via django
+redis==2.10.6
 requests==2.18.4          # via coreapi
 six==1.11.0               # via blessed, python-dateutil
 uritemplate==3.0.0        # via coreapi

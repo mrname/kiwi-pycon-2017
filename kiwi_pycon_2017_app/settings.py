@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_q',
     'rest_framework',
     'rest_framework.authtoken',
     'kiwi_pycon_2017_demo',
@@ -187,4 +188,20 @@ LOGGING = {
             'propagate': False,
         },
     },
+}
+
+Q_CLUSTER = {
+    'name': 'kiwi-pycon',
+    'workers': 8,
+    'recycle': 500,
+    'timeout': 60,
+    'compress': True,
+    'cpu_affinity': 1,
+    'save_limit': 250,
+    'queue_limit': 500,
+    'label': 'Django Q',
+    'redis': {
+        'host': 'redis',
+        'port': 6379,
+        'db': 0, }
 }
