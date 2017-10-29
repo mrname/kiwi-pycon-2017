@@ -31,8 +31,8 @@ services:
     build: .
     image: my-api
     command: bash docker_entrypoint.sh
-    #volumes:
-    #  - .:/src
+    volumes:
+      - .:/src
     depends_on:
       - db
     ports:
