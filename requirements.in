@@ -1,5 +1,6 @@
 coreapi
 django
 django-filter
+django-q
 djangorestframework
 psycopg2

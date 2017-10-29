@@ -4,8 +4,9 @@ services:
     image: nginx
     restart: always
     ports:
-      - "443:443"
-    #volumes:
+      # - "80:80"
+      # - "443:443"
+    volumes:
     #  - ./config/nginx:/etc/nginx/conf.d
     #  - ./config/ssl:/etc/ssl
     #  - ./static:/static
@@ -15,7 +16,7 @@ services:
     restart: always
     image: postgres
     ports:
-      - "54332:5432"
+      - "5432:5432"
     #volumes:
     #  - ./postgres_init:/docker-entrypoint-initdb.d
     #  - ./postgres_data:/var/lib/postgresql/data
@@ -28,6 +29,7 @@ services:
     environment:
       - DOCKER=True
     build: .
+    image: my-api
     command: bash docker_entrypoint.sh
     #volumes:
     #  - .:/src
@@ -35,3 +37,21 @@ services:
       - db
     ports:
       - "8000:8000"
+  django_q:
+    #env_file:
+    #  - .env 
+    restart: always
+    environment:
+      - DOCKER=True
+    build: .
+    image: my-api
+    command: python manage.py qcluster
+    #volumes:
+    #  - .:/src
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+  redis:
+    restart: always
+    image: redis
