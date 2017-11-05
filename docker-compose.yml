@@ -5,11 +5,11 @@ services:
     restart: always
     ports:
        - "80:80"
-      # - "443:443"
     volumes:
       - ./config/nginx:/etc/nginx/conf.d
-    #  - ./config/ssl:/etc/ssl
       - ./static:/static
+    networks:
+      - frontend
     depends_on:
       - api
   db:
@@ -17,9 +17,8 @@ services:
     image: postgres
     ports:
       - "5432:5432"
-    #volumes:
-    #  - ./postgres_init:/docker-entrypoint-initdb.d
-    #  - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
     #env_file:
     #  - .postgres_env 
   api:
@@ -35,8 +34,11 @@ services:
       - .:/src
     depends_on:
       - db
-    ports:
-      - "8000:8000"
+    networks:
+      - frontend
+      - backend
+#    ports:
+#      - "8000:8000"
   django_q:
     #env_file:
     #  - .env 
@@ -46,6 +48,8 @@ services:
     build: .
     image: my-api
     command: python manage.py qcluster
+    networks:
+      - backend
     #volumes:
     #  - .:/src
     depends_on:
@@ -53,3 +57,8 @@ services:
   redis:
     restart: always
     image: redis
+    networks:
+      - backend
+networks:
+  backend:
+  frontend:

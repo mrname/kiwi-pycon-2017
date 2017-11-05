@@ -21,7 +21,7 @@ from rest_framework.documentation import include_docs_urls
 from kiwi_pycon_2017_demo import views
 
 router = routers.SimpleRouter()
-router.register(r'example', views.WidgetViewSet)
+router.register(r'widget', views.WidgetViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

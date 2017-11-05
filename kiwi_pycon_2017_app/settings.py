@@ -164,7 +164,7 @@ REST_FRAMEWORK = {
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'root': {
         'level': 'INFO',
         'handlers': ['console'],
