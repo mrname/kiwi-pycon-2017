@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: nginx
+    image: nginx:1.13
     restart: always
     ports:
        - "80:80"
@@ -14,7 +14,7 @@ services:
       - api
   db:
     restart: always
-    image: postgres
+    image: postgres:10
     ports:
       - "5432:5432"
     networks:
@@ -50,7 +50,7 @@ services:
       - db
   redis:
     restart: always
-    image: redis
+    image: redis:3
     networks:
       - backend
 networks:

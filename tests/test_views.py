@@ -2,9 +2,9 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
 
-class TestPortalCheckin(APITestCase):
+class TestWdigetView(APITestCase):
 
-    base_url = '/example/'
+    base_url = '/widget/'
 
     def setUp(self):
         user = User.objects.create_superuser('admin', 'admin@admin.com', 'adminadmin')
