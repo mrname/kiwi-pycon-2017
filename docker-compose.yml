@@ -19,6 +19,8 @@ services:
       - "5432:5432"
     networks:
       - backend
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
   api:
     env_file:
       - .env 
