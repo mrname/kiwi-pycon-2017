@@ -8,21 +8,21 @@ arrow==0.10.0             # via django-q
 blessed==1.14.2           # via django-q
 certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
-coreapi==2.3.3
+coreapi==2.3.3            # via -r requirements.in
 coreschema==0.0.4         # via coreapi
-django-filter==1.1.0
+django-filter==1.1.0      # via -r requirements.in
 django-picklefield==1.0.0  # via django-q
-django-q==0.8.1
-django==1.11.6
-djangorestframework==3.7.1
+django-q==0.8.1           # via -r requirements.in
+django==1.11.29           # via -r requirements.in, django-q
+djangorestframework==3.7.1  # via -r requirements.in
 idna==2.6                 # via requests
 itypes==1.1.0             # via coreapi
 jinja2==2.9.6             # via coreschema
 markupsafe==1.0           # via jinja2
-psycopg2==2.7.3.1
+psycopg2==2.7.3.1         # via -r requirements.in
 python-dateutil==2.6.1    # via arrow
 pytz==2017.2              # via django
-redis==2.10.6
+redis==2.10.6             # via -r requirements.in
 requests==2.18.4          # via coreapi
 six==1.11.0               # via blessed, python-dateutil
 uritemplate==3.0.0        # via coreapi
