@@ -4,6 +4,9 @@
 #
 #    pip-compile --output-file test_requirements.txt test_requirements.in
 #
-py==1.4.34                # via pytest
+py==1.10.0
+    # via pytest
 pytest-django==3.1.2
-pytest==3.2.3             # via pytest-django
+    # via -r test_requirements.in
+pytest==3.2.3
+    # via pytest-django
